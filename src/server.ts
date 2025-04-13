@@ -50,33 +50,45 @@
 
 
 
+// import dotenv from 'dotenv';
+// dotenv.config();
+// import express from 'express';
+// import { sequelize } from './config/database';
+
+// const PORT = process.env.PORT || 3000;
+
+// (async () => {
+//   try {
+//     // Conecta e sincroniza BD se quiser
+//     await sequelize.authenticate();
+//     await sequelize.sync();
+
+//     const app = express();
+//     app.use(express.json());
+
+//     // Rotas
+//     app.get('/', (req, res) => {
+//       res.send('Hello Railway!');
+//     });
+
+//     app.listen(PORT, () => {
+//       console.log(`Servidor rodando na porta ${PORT}`);
+//     });
+//   } catch (error) {
+//     console.error('Erro ao iniciar servidor:', error);
+//   }
+// })();
+
+
+
 import dotenv from 'dotenv';
 dotenv.config();
-import express from 'express';
-import { sequelize } from './config/database';
+import app from './app';
 
 const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
 
-(async () => {
-  try {
-    // Conecta e sincroniza BD se quiser
-    await sequelize.authenticate();
-    await sequelize.sync();
-
-    const app = express();
-    app.use(express.json());
-
-    // Rotas
-    app.get('/', (req, res) => {
-      res.send('Hello Railway!');
-    });
-
-    app.listen(PORT, () => {
-      console.log(`Servidor rodando na porta ${PORT}`);
-    });
-  } catch (error) {
-    console.error('Erro ao iniciar servidor:', error);
-  }
-})();
 
 

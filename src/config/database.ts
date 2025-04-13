@@ -13,9 +13,7 @@ export const sequelize = new Sequelize(dbName, dbUser, dbPass, {
   host: dbHost,
   port: Number(dbPort),
   dialect: 'mysql',
-  define: {
-    timestamps: true,
-  },
+  define: { timestamps: true },
 });
 
 export const connectDB = async () => {

@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "nodemon --watch src --ext ts,json --exec ts-node src/server.ts",
     "build": "tsc",
-    "start": "nodemon dist/server.js"
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
