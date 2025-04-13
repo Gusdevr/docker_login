@@ -2,9 +2,9 @@
   "name": "meu-projeto",
   "version": "1.0.0",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpileOnly src/server.ts",
+    "dev": "nodemon --watch src --ext ts,json --exec ts-node src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "nodemon dist/server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
