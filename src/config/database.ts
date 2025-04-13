@@ -32,15 +32,16 @@ import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const dbHost = process.env.DB_HOST as string;     // mysql.railway.internal
-const dbUser = process.env.DB_USER as string;     // root
-const dbPass = process.env.DB_PASS as string;     // WshldAwkovCGLbkmrLbjGXNZbcIiClJW
-const dbName = process.env.DB_NAME as string;     // railway
-const dbPort = Number(process.env.DB_PORT) || 3306;
+const dbHost = process.env.DB_HOST as string;    // hopper.proxy.rlwy.net
+const dbPort = Number(process.env.DB_PORT) || 3306; // 28133
+const dbUser = process.env.DB_USER as string;    // root
+const dbPass = process.env.DB_PASS as string;    // WshldAwkov...
+const dbName = process.env.DB_NAME as string;    // railway
 
 export const sequelize = new Sequelize(dbName, dbUser, dbPass, {
   host: dbHost,
   port: dbPort,
   dialect: 'mysql',
 });
+
 
