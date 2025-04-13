@@ -28,14 +28,13 @@
 
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
-const dbHost = process.env.DB_HOST as string;      // hopper.proxy.rlwy.net
-const dbUser = process.env.DB_USER as string;      // root
-const dbPass = process.env.DB_PASS as string;      // sua senha
-const dbName = process.env.DB_NAME as string;      // railway
-const dbPort = process.env.DB_PORT as string;        // 28133
+const dbHost = process.env.DB_HOST as string;       // Exemplo: hopper.proxy.rlwy.net
+const dbPort = process.env.DB_PORT as string;         // Exemplo: 28133
+const dbUser = process.env.DB_USER as string;         // Exemplo: root
+const dbPass = process.env.DB_PASS as string;         // Exemplo: sua senha
+const dbName = process.env.DB_NAME as string;         // Exemplo: railway
 
 export const sequelize = new Sequelize(dbName, dbUser, dbPass, {
   host: dbHost,
@@ -43,16 +42,15 @@ export const sequelize = new Sequelize(dbName, dbUser, dbPass, {
   dialect: 'mysql',
   dialectOptions: {
     ssl: {
-      // Essas configurações obrigam o uso de SSL e podem ignorar a validade do certificado.
       require: true,
       rejectUnauthorized: false,
     },
+    connectTimeout: 10000, // 10 segundos, por exemplo
   },
   define: {
     timestamps: true,
   },
 });
-
 
 
 
